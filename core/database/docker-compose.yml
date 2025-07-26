@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: shadow-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shadow
+      MYSQL_USER: shadow
+      MYSQL_PASSWORD: shadowpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - /workspaces/ShadowPanel/mysql:/var/lib/mysql

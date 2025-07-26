@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShadowPanel - Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Dashboard</h1>
+      <p>Welcome, <%= user.username || 'User' %></p>
+    </header>
+
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+
+    <section id="servers">
+      <!-- This will be replaced with a React component or SSR list later -->
+      <p>No servers available yet.</p>
+    </section>
+  </main>
+</body>
+</html>

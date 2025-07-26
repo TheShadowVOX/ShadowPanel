@@ -1,0 +1,17 @@
+<h1>Recovery Tokens</h1>
+<p>Save these in a secure place:</p>
+<ul>
+<h1>2FA Backup Codes</h1>
+
+<% if (tokens && tokens.length) { %>
+  <ul>
+    <% tokens.forEach(token => { %>
+      <li><%= token %></li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No backup codes available.</p>
+<% } %>
+
+</ul>
+<a href="/my/account">Back to account</a>

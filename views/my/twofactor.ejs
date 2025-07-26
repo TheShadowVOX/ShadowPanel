@@ -1,0 +1,35 @@
+<h1>Two-Factor Authentication</h1>
+
+<% if (error) { %>
+  <p style="color: red;"><%= error %></p>
+<% } %>
+
+<% if (typeof twoFactorEnabled !== 'undefined' && twoFactorEnabled === true) { %>
+  <p>Two-factor authentication is currently <strong>enabled</strong> on your account.</p>
+
+  <form method="POST" action="/my/account/two-factor/disable">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+    <br />
+    <button type="submit">Disable 2FA</button>
+  </form>
+
+<% } else if (typeof twoFactorEnabled !== 'undefined' && image) { %>
+  <p>Scan this QR code with your authenticator app to enable 2FA:</p>
+  <img src="<%= image %>" alt="2FA QR Code" />
+
+  <form method="POST" action="/my/account/two-factor">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+    <br />
+
+    <label for="code">2FA Code:</label>
+    <input type="text" id="code" name="code" required />
+    <br />
+
+    <button type="submit">Enable 2FA</button>
+  </form>
+
+<% } else { %>
+  <p>Unable to load 2FA status or QR code.</p>
+<% } %>
